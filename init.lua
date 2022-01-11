@@ -94,7 +94,7 @@ minetest.register_chatcommand("leafmat", {
 
 
 -- Tree growth node
-minetest.register_node("rnd_trees:tree", {
+minetest.register_node("trees:tree", {
 	description = "Naturally growing tree",
 	tiles = {"default_tree.png"},
 	is_ground_content = true,
@@ -174,7 +174,7 @@ minetest.register_node("rnd_trees:tree", {
 })
 
 -- Apple tree growth node
-minetest.register_node("rnd_trees:appletree", {
+minetest.register_node("trees:appletree", {
 	description = "Naturally growing apple tree",
 	tiles = {"default_tree.png"},
 	is_ground_content = true,
@@ -200,7 +200,7 @@ minetest.register_node("rnd_trees:appletree", {
 })
 
 -- Jungle tree growth node
-minetest.register_node("rnd_trees:jungletree", {
+minetest.register_node("trees:jungletree", {
 	description = "Naturally growing jungle tree",
 	tiles = {"default_jungletree.png"},
 	is_ground_content = true,
@@ -226,7 +226,7 @@ minetest.register_node("rnd_trees:jungletree", {
 })
 
 -- Pine tree growth node
-minetest.register_node("rnd_trees:pinetree", {
+minetest.register_node("trees:pinetree", {
 	description = "Naturally growing pine tree",
 	tiles = {"default_pine_tree.png"},
 	is_ground_content = true,
@@ -252,7 +252,7 @@ minetest.register_node("rnd_trees:pinetree", {
 })
 
 -- Acacia tree growth node
-minetest.register_node("rnd_trees:acaciatree", {
+minetest.register_node("trees:acaciatree", {
 	description = "Naturally growing acacia tree",
 	tiles = {"default_acacia_tree.png"},
 	is_ground_content = true,
@@ -278,7 +278,7 @@ minetest.register_node("rnd_trees:acaciatree", {
 })
 
 -- Aspen tree growth node
-minetest.register_node("rnd_trees:aspentree", {
+minetest.register_node("trees:aspentree", {
 	description = "Naturally growing aspen tree",
 	tiles = {"default_aspen_tree.png"},
 	is_ground_content = true,
@@ -305,8 +305,7 @@ minetest.register_node("rnd_trees:aspentree", {
 
 -- Growing function
 minetest.register_abm({
-	nodenames = {"rnd_trees:tree", "rnd_trees:appletree", "rnd_trees:jungletree", "rnd_trees:pinetree",
-					"rnd_trees:acaciatree", "rnd_trees:aspentree"},
+	nodenames = {"trees:tree", "trees:appletree", "trees:jungletree", "trees:pinetree", "trees:acaciatree", "trees:aspentree"},
 	neighbors = {"air"},
 	interval = 1.0,
 	chance = 2,
@@ -381,7 +380,7 @@ minetest.register_abm({
 					end
 				end
 				local grow = {x=above.x+dir.x*length,y=above.y+dir.y*length,z=above.z+dir.z*length};
-				minetest.set_node(grow,{name="rnd_trees:tree"});
+				minetest.set_node(grow,{name="trees:tree"});
 				meta = minetest.get_meta(grow);
 				-- Save growth state to new growth node
 				meta:set_int("life",life*math.pow(0.8,branch)-1);meta:set_int("branch",branch+length); -- remember that we branched
@@ -397,7 +396,7 @@ minetest.register_abm({
 			end
 	
 			-- add new growing part
-			minetest.set_node(above,{name="rnd_trees:tree"});
+			minetest.set_node(above,{name="trees:tree"});
 			meta = minetest.get_meta(above);
 			-- Save growth state
 			meta:set_int("life",life-1);meta:set_int("branch",branch); -- decrease life
