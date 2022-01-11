@@ -8,7 +8,7 @@ Create naturally-growing trees from any material, Place one of the `rnd_trees` b
 The tree will start growing immediately.
 
 
-![](screenshot.jpg)
+![](screenshot.png)
 
 Foreground: stone and wooden fence, Background: Bone and ethereal mushroom
 
